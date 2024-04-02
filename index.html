@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User portal- director</title>
+    <link rel="stylesheet" href="src/output.css">
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body class="font-Inter">
+    <div class="pb-10 ">
+        <!-- Nav bar -->
+        <div class="flex justify-between items-center border-b border-[#E5E7EB] pt-5 md:pt-7 pb-4">
+        
+            <div class="pl-8 lg:pl-6 ">
+                <img src="Assets/Logo.svg" alt="" class="h-10 w-auto">
+            </div>
+            <div class="hidden md:block">
+                <div class=" flex gap-1 lg:gap-2 xl:gap-3">
+                    <button class="flex py-2 px-2 justify-center items-center  rounded-md bg-[#FFE3B2]"><span class="text-[#7D3D02] text-sm font-semibold text-nowrap">Home</span></button>
+                    <button class="flex py-2 px-2 justify-center items-center rounded-md"><span class=" text-[#667085] text-sm font-semibold text-nowrap">My Applications</span></button>
+                    <button class="flex py-2 px-2 justify-center items-center rounded-md"><span class=" text-[#667085] text-sm font-semibold text-nowrap">Services</span></button>
+                </div>
+            </div>
+            <div class=" flex justify-between items-center gap-1 xl:gap-2   pr-6">
+                <div class="flex items-start">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 hidden md:block">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0"></path>
+                      </svg>
+                      <div class="rounded-[50%] border-red-600 bg-red-600 p-[1px] w-3 -ml-2 hidden md:block"> <p class="text-[8px] font-medium text-white text-center">4</p></div>
+                </div>
+                  <img src="Assets/James.svg" alt="" class="w-10 h-10">
+                  <p class="text-[#374151] text-sm leading-6 font-medium capitalize text-nowrap hidden lg:block">manaja james</p>
+                  <!-- Dropdown -->
+                  <div class="hidden md:block">
+                    <div>
+                      <div class="relative" x-data="{ isOpen: false }" x-cloak>
+                            <button class="flex items-center justify-end"
+                                    @click="isOpen = !isOpen"
+                                    @keydown.escape="isOpen = false"
+                                    >
+                              <svg class="transition-transform duration-200 transform"
+                                   :class="{'rotate-180': isOpen, 'rotate-0': !isOpen}" fill="#667085" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                <path d="M15.3 9.3a1 1 0 0 1 1.4 1.4l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 0 1 1.4-1.4l3.3 3.29 3.3-3.3z" class="heroicon-ui"></path>
+                              </svg>
+                            </button>
+                        <div x-show="isOpen"
+                        @click.away="isOpen = false" class="absolute   bg-white text-black w-auto py-1 rounded-sm z-10 mt-2 border-2 border-[#FFE3B2] shadow-md shadow-[#888888] -left-24">
+                          <a href="#" class="block px-4 py-1 text-[#667085] text-xs md:text-sm font-semibold hover:bg-[#FFE3B2] hover:text-[#7D3D02] cursor-pointer text-nowrap">Your Profile</a>
+                          <a href="#" class="block px-4 py-1 text-[#667085] text-xs md:text-sm font-semibold hover:bg-[#FFE3B2] hover:text-[#7D3D02] cursor-pointer text-nowrap">Settings</a>
+                          <a href="#" class="block px-4 py-1 text-[#667085] text-xs md:text-sm font-semibold hover:bg-[#FFE3B2] hover:text-[#7D3D02] cursor-pointer text-nowrap">Sign Out</a>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class=" text-white relative z-10  md:hidden pl-2">
+                    <div class="h-20 py-4 flex items-center">
+                      
+                       <!-- Menu -->
+                       <div x-data="{ open: false }" class="z-10 flex-1" x-cloak>
+                          <div :class="{ 'flex' : open, 'hidden' : open === false }" class="fixed lg:relative top-0 left-0 w-full lg:w-auto h-screen lg:h-auto lg:flex flex-col lg:flex-row items-center justify-center lg:justify-start z-50 bg-black   lg:bg-transparent leading-loose font-sans uppercase text-white text-base lg:text-xs tracking-wider gap-8 hidden overflow-hidden">
+                            <a href="#" class=" text-[#fff] text-base font-bold  hover:text-[#7D3D02] cursor-pointer text-nowrap">Home</a>
+                            <a href="#" class=" text-[#fff] text-base font-bold  hover:text-[#7D3D02] cursor-pointer text-nowrap">My Applications</a>  
+                            <a href="#" class=" text-[#fff] text-base font-bold  hover:text-[#7D3D02] cursor-pointer text-nowrap">Services</a>  
+                            <a href="#" class=" text-[#fff] text-base font-bold  hover:text-[#7D3D02] cursor-pointer text-nowrap">Notifications</a>  
+                            <a href="#" class=" text-[#fff] text-base font-bold  hover:text-[#7D3D02] cursor-pointer text-nowrap">Your Profile</a>  
+                            <a href="#" class=" text-[#fff] text-base font-bold  hover:text-[#7D3D02] cursor-pointer text-nowrap">Settings</a>
+                            <a href="#" class=" text-[#fff] text-base font-bold  hover:text-[#7D3D02] cursor-pointer text-nowrap">Sign Out</a>   
+                          </div>
+                          <button @click="open = true" type="button" :class="{ 'hidden' : open, 'block' : !open }" class="block lg:hidden text-4xl font-thin"><img src="Assets/bars.png" alt="" class="h-8 w-auto"></button>
+                          <button @click="open = false" type="button" :class="{ 'block' : open, 'hidden' : !open }" class="lg:hidden absolute top-0 right-0 leading-none py-7 text-2xl z-50 hidden pr-1">╳</button>
+                       </div>
+                       <!-- / Menu -->
+
+                    </div>
+                 </div>
+                  
+            </div>
+        </div>
+        <div class="lg:flex  w-full pb-8 pt-7 sm:pt-8 px-8">
+            <!-- Side bar -->
+            <div class="w-full min-w-[300px] lg:max-w-[332px] hidden lg:block pl-8">
+                <div class="border border-[#EAECF0] rounded-xl " >
+
+                    <div class="flex justify-between items-center p-4 lg:p-6">
+                        <div class="flex items-center gap-2">
+                            <img src="Assets/James.svg" alt="" class="w-10 h-10">
+                             <div>
+                                   <p class="text-[#092443] text-base leading-5 font-semibold capitalize text-nowrap">manaja james</p>
+                                   <p class="text-[#5C6876] text-sm leading-4 font-medium text-nowrap">ID No: 12345678</p>
+                             </div>
+                        </div>
+                        <a href="" class="btn-primary flex items-center w-fit rounded-[17px] bg-[#FFF] border border-[#E0E0E0] py-1 px-3 GAP-2 item-center text-sm text-[#475467] font-semibold capitalize" > View
+                       </a>
+                    </div>
+                    <div class=" space-y-3 pb-5 lg:pb-6 px-4 lg:px-6 border-b border-[#EAECF0]">
+                        <div class="space-y-0.5 ">
+                            <p class="text-xs font-medium text-[#5C6876]">Phone Number</p>
+                            <p class="text-sm font-medium text-[#092443]">254712345678</p>
+                        </div>
+                        <div class="space-y-0.5 ">
+                            <p class="text-xs font-medium text-[#5C6876]">Email Address</p>
+                            <p class="text-sm font-medium text-[#092443]">abcco@go.ke</p>
+                        </div>
+                        <div class="space-y-0.5 ">
+                            <p class="text-xs font-medium text-[#5C6876]">Member Since</p>
+                            <p class="text-sm font-medium text-[#092443]">12th Jan 2024</p>
+                        </div>
+                       
+
+    
+                    </div>
+
+                    <div class="p-4 lg:p-6">
+                        <p class="text-xs font-semibold tracking-wider mb-3 leading-tight text-gray-500 uppercase hidden lg:block">Support</p>
+
+                        <div class="px-5 py-5 w-full bg-[#ffa50e1a] bg-opacity-10 rounded-lg  items-start justify-start hidden lg:block mb-12">
+                            <div class="space-y-6">
+                                <p class="text-base font-semibold text-[#111827] w-24">Need Help?</p>
+                                <div class="space-y-3">
+                                    <div class="space-y-0.5 ">
+                                        <p class="text-xs font-medium text-[#111111CC]"> Customer Care</p>
+                                        <p class="text-sm font-medium text-[#111827]"> 020-2731531-9 </p>
+                                    </div>
+                                    <div class="space-y-0.5 ">
+                                        <p class="text-xs font-medium text-gray-500"> Email address</p>
+                                        <p class="text-sm font-medium text-[#111827]">ps@ushirika.go.ke</p>
+                                    </div>
+                                    <div class="pt-4 ">
+                                        <a href="#" class="text-[#7D3D02] font-medium  font-sm">Go to Support Page</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                      
+
+                </div>
+                
+            </div>
+            <!-- Right side -->
+            <div class=" lg:pl-8 lg:pt-0 w-full">
+                <div class="pb-6 sm:pb-8">
+                    <h2 class="text-[#111827] text-2xl sm:text-3xl leading-10 font-extrabold">Home</h2>
+                    <p class="text-[#6B7280] text-sm sm:text-base leading-5 font-normal">Welcome to The State Department for Cooperatives portal. Access our services below. </p>
+                </div>
+                
+                 <div class="w-full">
+                    
+                    <div class=" w-full left-0 top-0 right-0 bottom-0 h-full  px-4 rounded-lg  bg-cover bg-center bg-no-repeat bg-[#ffa50e1a] sm:bg-[url('../Assets/bg-img.jpg')]">
+                        
+                        <div class="flex flex-col text-white justify-center items-center h-full relative">
+                            <div class="grid grid-cols-12 w-full">
+                                <div class="hidden sm:block sm:col-span-4 lg:col-span-5">
+                                    &nbsp;
+                                </div>
+                                <div class="col-span-12 sm:col-span-8 lg:col-span-7 lg:pl-6 py-7 sm:py-8">
+                                    <p class="text-[#7D3D02] text-xl sm:text-2xl xl:text-3xl font-bold capitalize">Registration of External Cooperative auditors is open!</p>
+                                    <p class="text-[#111] text-sm xl:text-base font-medium py-4">Apply to be a recognized external cooperative auditor and become part of the 2024 list</p>
+                                    <button>
+                                        <a href=" " class="whitespace-nowrap flex items-center justify-center px-3 py-2 gap-2 border border-black bg-black rounded-lg shadow-sm hover:opacity-80 ">
+                                            <span class="text-white text-xs sm:text-sm font-semibold capitalize text-nowrap">Apply now</span>
+                                        </a>
+                                    </button>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+                 <!-- Alert -->
+                 <div class="pt-6 sm:pt-8">
+                    <p class="text-[#111827] text-base sm:text-lg font-semibold">Alert</p>
+                    <div class="bg-gradient-to-r from-green-600 via-amber-200 to-[#fff6e7] rounded-lg sm:flex py-4 sm:py-2 px-4 justify-between items-center">
+                        <div class="sm:flex items-center gap-2">
+                            <img src="Assets/CourtofArms.svg" alt="" class="h-10 w-10">
+                            <p class="text-[#111] text-xs sm:text-sm font-semibold py-3 sm:py-0">Action Needed: <span class="font-medium">You have a correction request on Application #1234567</span></p>
+                        </div>
+                        
+                        <a href="" class="btn-primary flex gap-1 items-center w-fit rounded-[29px] bg-[#FFA50E] border border-[#FFA50E] py-1 px-3 text-[#111] text-xs sm:text-sm font-semibold" > View
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M3.49506 7.99999H12.4465M12.4465 7.99999L7.97076 3.52429M12.4465 7.99999L7.97076 12.4757"
+                                    stroke="#111111" stroke-width="1.27877" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <!--Services  -->
+                    <div class="flex justify-between items-center pt-6 sm:pt-8 pb-4">
+                        <a href="#" class="text-[#000] text-base sm:text-lg font-semibold">Our Services</a>
+                        <a href="#" class="text-[#7D3D02] text-sm sm:text-base font-semibold leading-6 capitalize">All Services</a>
+                    </div>
+                    <!-- Search Services -->
+                    <div class="flex py-2 px-4 items-center gap-2 self-stretch rounded-[30px] border border-[#D0D5DD] bg-white " >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path
+                                d="M17.5 17.5L14.5834 14.5833M16.6667 9.58333C16.6667 13.4954 13.4954 16.6667 9.58333 16.6667C5.67132 16.6667 2.5 13.4954 2.5 9.58333C2.5 5.67132 5.67132 2.5 9.58333 2.5C13.4954 2.5 16.6667 5.67132 16.6667 9.58333Z"
+                                stroke="#667085" stroke-width="1.66667" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                        <input type="text" placeholder="Search Services" class="text-[#667085] text-sm font-normal leading-6">
+
+                    </div>
+                    <!-- The services -->
+                    <div class="mt-6 w-full grid grid-cols-1 lg:grid-cols-2 gap-5 ">
+                        <div class="flex">
+                            <div class="sm:flex flex-1 p-4 justify-between items-start border border-[#EAECF0] rounded-xl">
+                                <div class="pr-1">
+                                    <p class="text-[#344054] text-sm sm:text-base sm:leading-8 font-semibold capitalize">Registration of External auditors</p>
+                                    <p class="text-[#475467] text-xs sm:text-sm     font-normal">Apply to be a registered external cooperative auditor</p>
+                                </div>
+                                <a href="" class="btn-primary flex gap-1 items-center w-fit rounded-[29px] bg-[white] border border-[#7D3D02] mt-2 sm:mt-0 py-1 sm:py-[6px] px-2 xl:px-3 text-[#7D3D02] text-xs text-nowrap" > Apply Now
+                                    <svg width="17" height="17" viewBox="0 0 17 17" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M3.49506 7.99999H12.4465M12.4465 7.99999L7.97076 3.52429M12.4465 7.99999L7.97076 12.4757"
+                                            stroke="#7D3D02" stroke-width="1.27877" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="flex flex-1 p-4 justify-between items-start  border border-[#EAECF0] rounded-xl">
+                                <div class="gap-y-1">
+                                    <p class="text-[#344054] text-sm sm:text-base sm:leading-8 font-semibold capitalize ">Officials search</p>
+                                    <p class="text-[#475467] text-xs sm:text-sm     font-normal">Confirm  existence, addresses, and officials of a cooperative</p>
+                                </div>
+                                <a href="" class="text-sm font-semibold bg-white  rounded-[50px] hover:translate-x-0.5 transition-all ease-in-out duration-200    text-[#7D3D02]">
+                                    <div class="h-5 w-5">
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M4.16797 9.99935H15.8346M15.8346 9.99935L10.0013 4.16602M15.8346 9.99935L10.0013 15.8327"
+                                                stroke="#7D3D02" stroke-width="1.66667" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                        </svg>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex">
+                            <div class="flex flex-1 p-4 justify-between items-start  border border-[#EAECF0] rounded-xl">
+                                <div class="gap-y-1">
+                                    <p class="text-[#344054] text-sm sm:text-base sm:leading-8 font-semibold capitalize">Name search</p>
+                                    <p class="text-[#475467] text-xs sm:text-sm     font-normal">Confirm  availability of a name for your proposed cooperative</p>
+                                </div>
+                                <a href="" class="text-sm font-semibold bg-white  rounded-[50px] hover:translate-x-0.5 transition-all ease-in-out duration-200    text-[#7D3D02]">
+                                    <div class="h-5 w-5">
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M4.16797 9.99935H15.8346M15.8346 9.99935L10.0013 4.16602M15.8346 9.99935L10.0013 15.8327"
+                                                stroke="#7D3D02" stroke-width="1.66667" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                        </svg>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="flex">
+                            <div class="flex flex-1 p-4 justify-between items-start  border border-[#EAECF0] rounded-xl">
+                                <div class="gap-y-1">
+                                    <p class="text-[#344054] text-sm sm:text-base sm:leading-8 font-semibold capitalize">Registration of a Cooperative
+                                    </p>
+                                    <p class="text-[#475467] text-xs sm:text-sm     font-normal">Apply to register a cooperative</p>
+                                </div>
+                                <a href="" class="text-sm font-semibold bg-white  rounded-[50px] hover:translate-x-0.5 transition-all ease-in-out duration-200    text-[#7D3D02]">
+                                    <div class="h-5 w-5">
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M4.16797 9.99935H15.8346M15.8346 9.99935L10.0013 4.16602M15.8346 9.99935L10.0013 15.8327"
+                                                stroke="#7D3D02" stroke-width="1.66667" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                        </svg>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="flex flex-1 p-4 justify-between items-start  border border-[#EAECF0] rounded-xl">
+                                <div class="gap-y-1">
+                                    <p class="text-[#344054] text-sm sm:text-base sm:leading-8 font-semibold capitalize">Amendment of By-laws
+                                    </p>
+                                    <p class="text-[#475467] text-xs sm:text-sm     font-normal">Apply to register amendments of cooperative by-laws</p>
+                                </div>
+                                <a href="" class="text-sm font-semibold bg-white  rounded-[50px] hover:translate-x-0.5 transition-all ease-in-out duration-200    text-[#7D3D02]">
+                                    <div class="h-5 w-5">
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M4.16797 9.99935H15.8346M15.8346 9.99935L10.0013 4.16602M15.8346 9.99935L10.0013 15.8327"
+                                                stroke="#7D3D02" stroke-width="1.66667" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                        </svg>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="flex flex-1 p-4 justify-between items-start  border border-[#EAECF0] rounded-xl">
+                                <div class="gap-y-1">
+                                    <p class="text-[#344054] text-sm sm:text-base sm:leading-8 font-semibold capitalize">Registration of audited accounts</p>
+                                    <p class="text-[#475467] text-xs sm:text-sm     font-normal">Apply to register audited accounts</p>
+                                </div>
+                                <a href="" class="text-sm font-semibold bg-white  rounded-[50px] hover:translate-x-0.5 transition-all ease-in-out duration-200    text-[#7D3D02]">
+                                    <div class="h-5 w-5">
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M4.16797 9.99935H15.8346M15.8346 9.99935L10.0013 4.16602M15.8346 9.99935L10.0013 15.8327"
+                                                stroke="#7D3D02" stroke-width="1.66667" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                        </svg>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Support on Mobile -->
+                    <div class="lg:hidden mt-2">
+                        <p class="text-xs font-semibold tracking-wider mb-3 leading-tight text-gray-500 uppercase pt-8">Support</p>
+                        <div class="px-5 py-5 w-full bg-[#ffa50e1a] bg-opacity-10 rounded-lg  items-start justify-start ">
+                            <div class="space-y-6">
+                                <p class="text-base font-semibold text-gray-900 w-24">Need Help?</p>
+                                <div class="space-y-3">
+                                    <div class="space-y-0.5 ">
+                                        <p class="text-xs font-medium text-gray-500"> Customer Care</p>
+                                        <p class="text-sm font-medium text-slate-800"> 020-2731531-9 </p>
+                                    </div>
+                                    <div class="space-y-0.5 ">
+                                        <p class="text-xs font-medium text-gray-500"> Email address</p>
+                                        <p class="text-sm font-medium text-slate-800">ps@ushirika.go.ke</p>
+                                    </div>
+                                    <div class="space-y-0.5 ">
+                                        <a href="#" class="text-[#7D3D02] font-medium  font-sm">Go to Support Page</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    
+
+
+
+                    
+                 </div>
+            </div>
+
+    </div>
+    
+    
+</body>
+</html>
